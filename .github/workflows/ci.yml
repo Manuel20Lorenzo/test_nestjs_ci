@@ -35,6 +35,9 @@ jobs:
       - name: Installar npm
         run: npm install -g npm@latest
       
+      - name: Instalar NestJS
+        run: npm i -g @nestjs/cli
+
       - name: Iniciar API
         run: npm run start
       
