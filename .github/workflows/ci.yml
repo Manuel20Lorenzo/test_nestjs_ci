@@ -41,7 +41,7 @@ jobs:
       - name: Instalar Package
         run: npm i
 
-      - name: Iniciar API
-        run: npm run start
+      - name: Inicio de Test
+        run: npm run jest
       
 
