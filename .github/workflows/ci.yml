@@ -80,4 +80,50 @@ jobs:
           timeout_minutes: 1
           max_attempts: 3
           command: npm run test:e2e
+  
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # Versión de Node.js que deseas usar
+          cache-dependency-path: .npmrc
+        
+      - name: Installar npm
+        run: npm install -g npm@latest
+        
+      - name: Instalar NestJS
+        run: npm i -g @nestjs/cli
+
+      - name: Instalar Package
+        run: npm i
+      
+      - name: Compilado de NestJS
+        run: npm run build
+
+      - name: Test en Build
+        run: echo  ----- Init Test En Build ------
+
+      - name: Envio esto a un repositorio prod
+        run: echo ------ Send Cod Prod -------
+
+      - name: Envio esto a un repositorio prod
+        run: echo ------ Send Cod Prod -------
+      
+      - name: Inicio del proceso en el otro repositorio 
+        run: echo ------ INIT -------
+      
+      - name: Uso de herramienta en el MarketPlace AWS 
+        run: echo ------ INIT -------
+
+      - name: Inicio de servicio en AWS 
+        run: echo pm2 start 0
 
